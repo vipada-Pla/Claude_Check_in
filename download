@@ -1,0 +1,6 @@
+# กันไม่ให้ไฟล์รายชื่อจริงหลุดขึ้น GitHub
+*.xlsx
+*.xls
+roster*.csv
+!sample/*.csv
+.DS_Store
