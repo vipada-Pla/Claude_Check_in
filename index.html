@@ -3,33 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#059669">
+<meta name="theme-color" content="#b85c66">
 <title>เช็คชื่อ Claude AI Class</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="config.js"></script>
 <style>
 :root{
-  --g900:#064e3b; --g800:#065f46; --g700:#047857; --g600:#059669; --g500:#10b981; --g400:#34d399; --g200:#a7f3d0; --g100:#d1fae5; --g50:#ecfdf5;
-  --lime:#a3e635; --teal:#14b8a6; --amber:#f59e0b; --amber50:#fffbeb; --red:#e11d48; --red50:#fff1f2;
-  --ink:#0f2a22; --muted:#5b7a70; --line:#e3efe9; --bg:#f6fbf8; --card:#ffffff;
-  --shadow:0 1px 2px rgba(6,78,59,.06),0 8px 24px rgba(6,78,59,.06);
+  --g900:#5a2e30; --g800:#7a3b40; --g700:#9c4a52; --g600:#b85c66; --g500:#d4848a; --g400:#e2a5a5; --g200:#f0cfca; --g100:#f8e1dc; --g50:#fdf2ee;
+  --lime:#e9c46a; --teal:#d9a07a; --amber:#d98e3a; --amber50:#fdf1e1; --red:#e11d48; --red50:#fff1f2;
+  --ink:#3f2527; --muted:#8d6b67; --line:#f1ddd6; --bg:#fbf5f0; --card:#ffffff;
+  --shadow:0 1px 2px rgba(90,46,48,.07),0 8px 24px rgba(90,46,48,.07);
   --r:16px;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
 body{font-family:"IBM Plex Sans Thai",system-ui,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;
-  background-image:radial-gradient(1200px 500px at 100% -10%,#d1fae5 0,transparent 60%),radial-gradient(900px 400px at -10% 0,#e0f7ef 0,transparent 55%);}
+  background-image:radial-gradient(1200px 500px at 100% -10%,#f8e1dc 0,transparent 60%),radial-gradient(900px 400px at -10% 0,#f9e6dc 0,transparent 55%);}
 button,input,select{font-family:inherit;font-size:inherit;color:inherit}
 .wrap{max-width:1080px;margin:0 auto;padding:20px 16px 80px}
 
 /* header */
 .hero{position:relative;overflow:hidden;border-radius:24px;padding:26px 26px 22px;color:#fff;
-  background:linear-gradient(135deg,var(--g800) 0%,var(--g600) 55%,var(--teal) 100%);box-shadow:0 12px 32px rgba(5,150,105,.25)}
+  background:linear-gradient(135deg,var(--g800) 0%,var(--g600) 55%,var(--teal) 100%);box-shadow:0 12px 32px rgba(184,92,102,.25)}
 .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08)}
 .hero::before{width:280px;height:280px;right:-80px;top:-120px}
-.hero::after{width:160px;height:160px;right:120px;bottom:-90px;background:rgba(163,230,53,.18)}
+.hero::after{width:160px;height:160px;right:120px;bottom:-90px;background:rgba(233,196,106,.28)}
 .hero-top{display:flex;gap:16px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;position:relative;z-index:1}
 .brand{display:flex;gap:14px;align-items:center}
 .logo{width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.16);display:grid;place-items:center;border:1px solid rgba(255,255,255,.25)}
@@ -62,8 +62,8 @@ button,input,select{font-family:inherit;font-size:inherit;color:inherit}
 .seg button.on{background:var(--g50);color:var(--g800);box-shadow:inset 0 0 0 1px var(--g200)}
 .btn{border:0;border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:7px;transition:transform .08s,box-shadow .15s,background .15s}
 .btn:active{transform:scale(.97)}
-.btn-pri{background:linear-gradient(135deg,var(--g600),var(--g500));color:#fff;box-shadow:0 4px 14px rgba(16,185,129,.35)}
-.btn-pri:hover{box-shadow:0 6px 18px rgba(16,185,129,.45)}
+.btn-pri{background:linear-gradient(135deg,var(--g600),var(--g500));color:#fff;box-shadow:0 4px 14px rgba(184,92,102,.3)}
+.btn-pri:hover{box-shadow:0 6px 18px rgba(184,92,102,.4)}
 .btn-ghost{background:#fff;color:var(--g800);border:1px solid var(--line);box-shadow:var(--shadow)}
 .btn-ghost:hover{background:var(--g50)}
 .btn-danger{background:var(--red50);color:var(--red);border:1px solid #fecdd3}
@@ -73,33 +73,33 @@ button,input,select{font-family:inherit;font-size:inherit;color:inherit}
 /* list */
 .list{display:grid;gap:10px}
 .row{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;box-shadow:var(--shadow);transition:border-color .2s, background .2s}
-.row.done{background:linear-gradient(90deg,#f0fdf7 0,#fff 60%);border-color:var(--g200)}
+.row.done{background:linear-gradient(90deg,#fdf0ec 0,#fff 60%);border-color:var(--g200)}
 .av{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:700;color:var(--g800);background:var(--g100);font-size:16px}
 .row.done .av{background:linear-gradient(135deg,var(--g500),var(--teal));color:#fff}
 .nm{font-weight:600;font-size:16px;line-height:1.3}
 .meta{font-size:13px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
-.no{color:#9db5ad;font-variant-numeric:tabular-nums}
+.no{color:#c4a29d;font-variant-numeric:tabular-nums}
 .right{display:flex;align-items:center;gap:12px}
-.sig-load{display:inline-block;width:90px;background:linear-gradient(90deg,#f0fdf7,#d1fae5,#f0fdf7);background-size:200% 100%;animation:shim 1.2s infinite}
+.sig-load{display:inline-block;width:90px;background:linear-gradient(90deg,#fdf0ec,#f8e1dc,#fdf0ec);background-size:200% 100%;animation:shim 1.2s infinite}
 @keyframes shim{to{background-position:-200% 0}}
 .sig{height:40px;max-width:110px;border-radius:8px;background:#fff;border:1px dashed var(--g200);padding:2px 4px;cursor:zoom-in}
 .tag{font-size:12px;border-radius:999px;padding:3px 10px;font-weight:600;white-space:nowrap}
 .tag.ok{background:var(--g100);color:var(--g800)}
-.tag.late{background:var(--amber50);color:#b45309;border:1px solid #fde68a}
+.tag.late{background:var(--amber50);color:#a5602a;border:1px solid #f2d3a8}
 .time{font-weight:700;font-size:18px;color:var(--g700);font-variant-numeric:tabular-nums;text-align:right;line-height:1.1}
 .time small{display:block;font-weight:500;font-size:11px;color:var(--muted)}
-.kebab{border:0;background:transparent;color:#9db5ad;cursor:pointer;padding:6px;border-radius:8px}
+.kebab{border:0;background:transparent;color:#c4a29d;cursor:pointer;padding:6px;border-radius:8px}
 .kebab:hover{background:var(--g50);color:var(--g700)}
 
 .empty{text-align:center;padding:48px 20px;background:#fff;border:2px dashed var(--g200);border-radius:20px;color:var(--muted)}
 .empty .ic{width:72px;height:72px;margin:0 auto 10px;border-radius:22px;background:var(--g50);display:grid;place-items:center}
 .empty h3{color:var(--ink);margin:6px 0}
 .note{font-size:13px;color:var(--muted);margin-top:14px;display:flex;align-items:center;gap:8px;justify-content:center}
-.banner{display:none;margin:0 0 12px;padding:10px 14px;border-radius:12px;font-size:13px;background:var(--amber50);color:#92400e;border:1px solid #fde68a}
+.banner{display:none;margin:0 0 12px;padding:10px 14px;border-radius:12px;font-size:13px;background:var(--amber50);color:#8a4d22;border:1px solid #f2d3a8}
 .banner.show{display:block}
 
 /* modal */
-.ov{position:fixed;inset:0;background:rgba(6,40,30,.45);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
+.ov{position:fixed;inset:0;background:rgba(60,30,32,.42);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:16px;z-index:50}
 .ov.show{display:flex;animation:fade .15s}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 .modal{background:#fff;border-radius:22px;width:100%;max-width:560px;max-height:92vh;overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.25);animation:pop .18s}
@@ -121,7 +121,7 @@ button,input,select{font-family:inherit;font-size:inherit;color:inherit}
 .pad{position:relative;border:2px dashed var(--g400);border-radius:16px;background:
   linear-gradient(#fff,#fff) padding-box;height:200px;touch-action:none}
 .pad canvas{width:100%;height:100%;display:block;border-radius:14px;cursor:crosshair}
-.pad .hint{position:absolute;inset:0;display:grid;place-items:center;color:#a7c8bc;pointer-events:none;font-size:15px}
+.pad .hint{position:absolute;inset:0;display:grid;place-items:center;color:#d8b4ae;pointer-events:none;font-size:15px}
 .pad .base{position:absolute;left:24px;right:24px;bottom:44px;border-bottom:1px solid var(--g100);pointer-events:none}
 .field{display:grid;gap:6px;margin-bottom:12px}
 .field label{font-size:13px;font-weight:600;color:var(--g800)}
@@ -138,7 +138,7 @@ button,input,select{font-family:inherit;font-size:inherit;color:inherit}
 .radio{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
 .radio label{flex:1;min-width:180px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;font-size:14px;display:flex;gap:8px;align-items:center}
 .radio input{accent-color:var(--g600)}
-.code{background:#f3f8f6;border-radius:10px;padding:10px 12px;font-family:ui-monospace,monospace;font-size:12.5px;color:var(--g900);overflow:auto;white-space:pre}
+.code{background:#fbf0eb;border-radius:10px;padding:10px 12px;font-family:ui-monospace,monospace;font-size:12.5px;color:var(--g900);overflow:auto;white-space:pre}
 .big-sig{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff}
 .menu{position:fixed;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.12);padding:6px;z-index:60;display:none;min-width:180px}
 .menu button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:9px 12px;border-radius:8px;cursor:pointer;font-size:14px}
@@ -147,8 +147,8 @@ button,input,select{font-family:inherit;font-size:inherit;color:inherit}
 .toast{pointer-events:none;position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--g900);color:#fff;padding:12px 18px;border-radius:14px;opacity:0;transition:.25s;z-index:80;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.2);display:flex;gap:8px;align-items:center}
 .toast.show{opacity:1;transform:translateX(-50%)}
 .success{text-align:center;padding:10px 0 4px}
-.success .ck{width:84px;height:84px;margin:0 auto;border-radius:50%;background:linear-gradient(135deg,var(--g500),var(--teal));display:grid;place-items:center;box-shadow:0 10px 30px rgba(16,185,129,.35);animation:pop .3s}
-footer{text-align:center;color:#9db5ad;font-size:12px;margin-top:28px}
+.success .ck{width:84px;height:84px;margin:0 auto;border-radius:50%;background:linear-gradient(135deg,var(--g500),var(--teal));display:grid;place-items:center;box-shadow:0 10px 30px rgba(184,92,102,.3);animation:pop .3s}
+footer{text-align:center;color:#c4a29d;font-size:12px;margin-top:28px}
 
 /* ===== Responsive: desktop / tablet / mobile ===== */
 html{-webkit-text-size-adjust:100%}
@@ -200,7 +200,7 @@ button,.btn,.seg button,.kebab{-webkit-tap-highlight-color:transparent;touch-act
   /* modal เป็น bottom sheet */
   .ov{align-items:flex-end;padding:0}
   .modal{max-width:none;border-radius:22px 22px 0 0;max-height:94vh;padding-bottom:env(safe-area-inset-bottom)}
-  .modal::before{content:"";display:block;width:40px;height:5px;border-radius:5px;background:#d6e6df;margin:8px auto 0}
+  .modal::before{content:"";display:block;width:40px;height:5px;border-radius:5px;background:#ead3cc;margin:8px auto 0}
   @keyframes pop{from{transform:translateY(40px)}to{transform:none}}
   .mh,.mb{padding-left:16px;padding-right:16px}
   .mf{padding:0 16px 16px}
@@ -217,6 +217,77 @@ button,.btn,.seg button,.kebab{-webkit-tap-highlight-color:transparent;touch-act
   .pad{height:150px}
   .mh .s{display:none}
 }
+
+/* ================= THEME: Pink Earth-tone · Gen Alpha cute ================= */
+:root{--ink2:#4a2a2c;--sage:#7d8f69;--sage50:#eef1e4;--mustard:#e9c46a;--clay:#d9a07a;--sky:#b9cbd6}
+body{font-family:"Mali","IBM Plex Sans Thai",system-ui,sans-serif;
+  background-color:#fbf5f0;
+  background-image:
+    radial-gradient(circle at 12% 8%,#f8dcd3 0,transparent 32%),
+    radial-gradient(circle at 92% 4%,#f6e3c9 0,transparent 30%),
+    radial-gradient(circle at 80% 90%,#f3d9d6 0,transparent 35%),
+    radial-gradient(#ead3cc 1.2px,transparent 1.3px);
+  background-size:auto,auto,auto,22px 22px;background-attachment:fixed}
+.hero{background:linear-gradient(135deg,#b85c66 0%,#d4848a 48%,#e3a98a 100%);border:3px solid var(--ink2);
+  box-shadow:6px 6px 0 var(--ink2);border-radius:28px;padding-right:180px;min-height:190px}
+.hero::before{background:rgba(255,240,232,.16)}
+.hero h1{letter-spacing:.2px;text-shadow:2px 2px 0 rgba(74,42,44,.25)}
+.logo{background:#fff5ef;border:2.5px solid var(--ink2);box-shadow:3px 3px 0 var(--ink2);transform:rotate(-6deg)}
+.pill{background:rgba(255,245,239,.22);border:2px solid rgba(255,245,239,.55);font-weight:500}
+.mascot-hero{position:absolute;right:18px;bottom:-6px;width:150px;height:150px;z-index:1;animation:bob 3.2s ease-in-out infinite;filter:drop-shadow(0 6px 0 rgba(74,42,44,.18))}
+.hero .clock{position:relative;z-index:2}
+.hero-top{padding-right:0}
+.sticker{position:absolute;z-index:1;animation:float 4s ease-in-out infinite;pointer-events:none}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(12deg)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.stat,.search,.seg,.row,.btn-ghost,.empty,.modal,.menu{border:2.5px solid var(--ink2) !important;box-shadow:4px 4px 0 var(--ink2)}
+.stat{border-radius:22px}
+.stat:nth-child(2){background:#eef1e4}.stat:nth-child(3){background:#fdf1e1}.stat:nth-child(4){background:#f3eeee}
+.stat .v{font-size:32px}
+.row{border-radius:22px;transition:transform .12s, box-shadow .12s}
+.row:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink2)}
+.row.done{background:linear-gradient(90deg,#fde9e4 0,#fffaf7 70%)}
+.av{border:2.5px solid var(--ink2);border-radius:50%;font-size:15px}
+.row .av.c0{background:#f8d7d3}.row .av.c1{background:#f6e3c9}.row .av.c2{background:#e3ead6}.row .av.c3{background:#e7dcef}.row .av.c4{background:#d9e5ec}
+.row.done .av{background:linear-gradient(135deg,#d4848a,#e3a98a) !important;color:#fff}
+.btn{border-radius:16px;font-weight:700}
+.btn-pri{background:#d4848a;color:#fff;border:2.5px solid var(--ink2);box-shadow:3px 3px 0 var(--ink2)}
+.btn-pri:hover{background:#c86f77;box-shadow:4px 4px 0 var(--ink2);transform:translate(-1px,-1px)}
+.btn-pri:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink2)}
+.btn-ghost{background:#fffaf7;box-shadow:3px 3px 0 var(--ink2) !important}
+.btn-ghost:hover{background:#fdf0ec}
+.btn-danger{border:2px solid #c0485a}
+.seg button.on{background:#d4848a;color:#fff;box-shadow:none}
+.tag{border:2px solid var(--ink2)}
+.tag.ok{background:#e3ead6;color:#4f6136}
+.tag.late{background:#fde3c8;color:#8a4d22;border-color:var(--ink2)}
+.time{color:#9c4a52}
+.sig{border:2px dashed #d8b4ae;border-radius:12px;background:#fff}
+.modal{border-radius:28px}
+.mh .peek{width:54px;height:54px;flex:none;margin-right:-4px;animation:wiggle 2.4s ease-in-out infinite}
+.mh{align-items:center}
+.who{background:#fdf0ec;border:2px dashed #e2a5a5}
+.pad{border:3px dashed #d4848a;background:#fffdfb}
+.x{border:2px solid var(--ink2);border-radius:12px;background:#fdf0ec}
+.drop{border:3px dashed #d4848a;background:#fdf0ec;border-radius:22px}
+.empty{background:#fffaf7;border-style:solid !important;grid-column:1/-1}
+.empty .ic{width:140px;height:140px;background:transparent}
+.success .ck{background:none;box-shadow:none;width:150px;height:150px;border-radius:0}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;top:-10px;width:9px;height:14px;border-radius:3px;animation:fall 1.8s ease-in forwards}
+@keyframes fall{to{transform:translateY(420px) rotate(540deg);opacity:0}}
+.toast{background:#5a2e30;border:2px solid #fff;border-radius:18px}
+footer{color:#b48e88}
+@media (max-width:1199px) and (min-width:761px){ .hero{padding-right:170px} }
+@media (max-width:760px){
+  .hero{padding:18px 18px 18px;min-height:0;box-shadow:4px 4px 0 var(--ink2)}
+  .mascot-hero{width:92px;height:92px;right:6px;top:8px;bottom:auto}
+  .hero-top{padding-right:86px}
+  .stat,.search,.seg,.row,.btn-ghost,.empty{box-shadow:3px 3px 0 var(--ink2)}
+  .modal{border-bottom:0 !important;box-shadow:none}
+  .sticker{display:none}
+}
 </style>
 </head>
 <body>
@@ -226,7 +297,7 @@ button,.btn,.seg button,.kebab{-webkit-tap-highlight-color:transparent;touch-act
     <div class="hero-top">
       <div class="brand">
         <div class="logo">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <svg width="30" height="30" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.3-9.2C1.4 8.3 3.6 4.5 7.3 4.5c2 0 3.4 1.1 4.7 2.7 1.3-1.6 2.7-2.7 4.7-2.7 3.7 0 5.9 3.8 4.6 7.3C19.5 16.4 12 21 12 21z" fill="#d4848a" stroke="#4a2a2c" stroke-width="1.6"/><path d="M8.5 11.5l2.4 2.4 4.6-4.8" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div>
           <h1 id="className">Claude AI Class</h1>
@@ -238,30 +309,36 @@ button,.btn,.seg button,.kebab{-webkit-tap-highlight-color:transparent;touch-act
     <div class="hero-ctrl">
       <div class="pill">📅 วันที่เรียน <input type="date" id="dateSel"></div>
       <div class="pill">⏰ เริ่มเรียน <b id="startLbl">09:00</b> น.</div>
-      <div class="pill" id="syncPill"><span class="dot" style="background:#a3e635"></span><span id="syncTxt">กำลังเชื่อมต่อ…</span></div>
+      <div class="pill" id="syncPill"><span class="dot" style="background:#e9c46a"></span><span id="syncTxt">กำลังเชื่อมต่อ…</span></div>
     </div>
+
+    <svg class="sticker s1" style="left:46%;top:14px" width="26" height="26" viewBox="0 0 24 24"><path d="M12 2l2.6 6.4L21 11l-6.4 2.6L12 20l-2.6-6.4L3 11l6.4-2.6z" fill="#e9c46a" stroke="#4a2a2c" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <svg class="sticker s2" style="left:60%;bottom:18px;animation-delay:-1.4s" width="24" height="24" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.3-9.2C1.4 8.3 3.6 4.5 7.3 4.5c2 0 3.4 1.1 4.7 2.7 1.3-1.6 2.7-2.7 4.7-2.7 3.7 0 5.9 3.8 4.6 7.3C19.5 16.4 12 21 12 21z" fill="#fff0ea" stroke="#4a2a2c" stroke-width="1.6"/></svg>
+    <svg class="sticker s3" style="left:36%;bottom:30px;animation-delay:-2.2s" width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#c2d3a8" stroke="#4a2a2c" stroke-width="1.8"/></svg>
+    <svg class="sticker s4" style="left:72%;top:22px;animation-delay:-.7s" width="20" height="20" viewBox="0 0 24 24"><path d="M12 3l2 7 7 2-7 2-2 7-2-7-7-2 7-2z" fill="#fff" stroke="#4a2a2c" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <div class="mascot-hero" data-mascot="hello"></div>
   </header>
 
   <section class="stats">
     <div class="stat ring">
       <div class="ringwrap">
-        <svg width="74" height="74" viewBox="0 0 74 74"><circle cx="37" cy="37" r="31" stroke="#e3efe9" stroke-width="9" fill="none"/>
+        <svg width="74" height="74" viewBox="0 0 74 74"><circle cx="37" cy="37" r="31" stroke="#f1ddd6" stroke-width="9" fill="none"/>
           <circle id="ringArc" cx="37" cy="37" r="31" stroke="url(#gr)" stroke-width="9" fill="none" stroke-linecap="round" transform="rotate(-90 37 37)" stroke-dasharray="194.8" stroke-dashoffset="194.8" style="transition:stroke-dashoffset .6s"/>
-          <defs><linearGradient id="gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#14b8a6"/></linearGradient></defs></svg>
+          <defs><linearGradient id="gr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4848a"/><stop offset="1" stop-color="#d9a07a"/></linearGradient></defs></svg>
         <div class="pct" id="pct">0%</div>
       </div>
       <div><div class="k">มาเรียนแล้ว</div><div class="v"><span id="sIn">0</span><span style="font-size:18px;color:var(--muted)"> / <span id="sTot">0</span> คน</span></div></div>
     </div>
     <div class="stat"><div class="k"><span class="dot" style="background:var(--g500)"></span>ตรงเวลา</div><div class="v" id="sOn">0</div></div>
     <div class="stat"><div class="k"><span class="dot" style="background:var(--amber)"></span>มาสาย</div><div class="v" id="sLate">0</div></div>
-    <div class="stat"><div class="k"><span class="dot" style="background:#cbd5d1"></span>ยังไม่มา</div><div class="v" id="sPend">0</div></div>
+    <div class="stat"><div class="k"><span class="dot" style="background:#dcc9c3"></span>ยังไม่มา</div><div class="v" id="sPend">0</div></div>
   </section>
 
   <div class="banner" id="banner"></div>
 
   <div class="toolbar">
     <div class="search">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5b7a70" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d6b67" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <input id="q" placeholder="ค้นหาชื่อ / แผนก / บริษัท…">
     </div>
     <div class="seg" id="seg">
@@ -285,7 +362,7 @@ button,.btn,.seg button,.kebab{-webkit-tap-highlight-color:transparent;touch-act
 
 <!-- Check-in modal -->
 <div class="ov" id="mCheck"><div class="modal">
-  <div class="mh"><div><h2>ยืนยันการเข้าเรียน</h2><div class="s">กรุณาตรวจสอบชื่อและเซ็นลายมือชื่อ</div></div><button class="x" data-close>×</button></div>
+  <div class="mh"><div class="peek" data-mascot="hello"></div><div style="flex:1"><h2>ยืนยันการเข้าเรียน</h2><div class="s">กรุณาตรวจสอบชื่อและเซ็นลายมือชื่อ</div></div><button class="x" data-close>×</button></div>
   <div class="mb" id="checkBody">
     <div class="who">
       <div class="av" id="cAv">A</div>
@@ -480,7 +557,7 @@ function Remote(url, refreshSec){
 
 let store = null;
 function setSync(kind, txt){
-  const c = {ok:"#a3e635", warn:"#fde047", err:"#fda4af", local:"#e0f2fe"}[kind] || "#a3e635";
+  const c = {ok:"#e9c46a", warn:"#fde047", err:"#fda4af", local:"#f6e7d3"}[kind] || "#e9c46a";
   $("#syncPill .dot").style.background = c; $("#syncTxt").textContent = txt;
 }
 
@@ -491,6 +568,46 @@ function attach(st){
   subDay();
 }
 function subDay(){ store.subCheckins(S.date, list => { S.checkins = {}; list.forEach(c => S.checkins[c.rosterId]=c); render(); }); }
+
+
+/* ---------- มาสคอตการ์ตูน (วาดเอง, SVG) ---------- */
+function mascot(mood){
+  const ink="#4a2a2c";
+  const eyes = mood==="happy"
+    ? `<path d="M47 74 q7 -9 14 0" stroke="${ink}" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M79 74 q7 -9 14 0" stroke="${ink}" stroke-width="3.5" fill="none" stroke-linecap="round"/>`
+    : mood==="sleep"
+    ? `<path d="M47 76 q7 5 14 0" stroke="${ink}" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M79 76 q7 5 14 0" stroke="${ink}" stroke-width="3.5" fill="none" stroke-linecap="round"/>`
+    : `<ellipse cx="54" cy="74" rx="6" ry="8" fill="${ink}"/><circle cx="56.5" cy="70.5" r="2.4" fill="#fff"/><ellipse cx="86" cy="74" rx="6" ry="8" fill="${ink}"/><circle cx="88.5" cy="70.5" r="2.4" fill="#fff"/>`;
+  const mouth = mood==="happy"
+    ? `<path d="M60 88 q10 14 20 0 z" fill="#c8505e" stroke="${ink}" stroke-width="3" stroke-linejoin="round"/>`
+    : mood==="sleep" ? `<ellipse cx="70" cy="92" rx="4" ry="3" fill="${ink}"/>`
+    : `<path d="M62 89 q8 8 16 0" stroke="${ink}" stroke-width="3.5" fill="none" stroke-linecap="round"/>`;
+  const extra = mood==="happy"
+    ? `<path d="M26 74 q-14 -10 -10 -26" stroke="${ink}" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M114 74 q14 -10 10 -26" stroke="${ink}" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+       <path d="M18 34 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#e9c46a" stroke="${ink}" stroke-width="2"/><path d="M124 30 l2.5 5.5 5.5 2.5 -5.5 2.5 -2.5 5.5 -2.5 -5.5 -5.5 -2.5 5.5 -2.5z" fill="#fff" stroke="${ink}" stroke-width="2"/>`
+    : mood==="sleep"
+    ? `<text x="104" y="40" font-family="Mali,sans-serif" font-weight="700" font-size="18" fill="${ink}">z</text><text x="116" y="26" font-family="Mali,sans-serif" font-weight="700" font-size="13" fill="${ink}">z</text>`
+    : `<g transform="translate(88 90) rotate(12)"><rect x="0" y="0" width="30" height="36" rx="6" fill="#fffaf5" stroke="${ink}" stroke-width="2.5"/><rect x="9" y="-4" width="12" height="7" rx="3" fill="#d9a07a" stroke="${ink}" stroke-width="2"/><path d="M8 18 l5 5 l10 -11" stroke="#7d8f69" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  return `<svg viewBox="0 0 140 140" width="100%" height="100%" aria-hidden="true">
+    <ellipse cx="70" cy="130" rx="36" ry="5" fill="${ink}" opacity=".12"/>
+    <path d="M70 30 V14" stroke="#6b7f4f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M70 19 C60 8 47 12 49 21 C57 26 66 23 70 19Z" fill="#a3b88a" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M70 17 C80 6 93 10 91 19 C83 24 74 21 70 17Z" fill="#c2d3a8" stroke="${ink}" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M70 28 C103 28 121 52 119 83 C117 112 97 126 70 126 C43 126 23 112 21 83 C19 52 37 28 70 28Z" fill="#f6c3b8" stroke="${ink}" stroke-width="3"/>
+    <path d="M40 50 q8 -10 20 -12" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7"/>
+    ${eyes}
+    <ellipse cx="41" cy="90" rx="8" ry="5" fill="#e88a8f" opacity=".55"/><ellipse cx="99" cy="90" rx="8" ry="5" fill="#e88a8f" opacity=".55"/>
+    ${mouth}${extra}</svg>`;
+}
+function confetti(host){
+  const box = document.createElement("div"); box.className = "confetti";
+  const cols = ["#d4848a","#e9c46a","#a3b88a","#d9a07a","#b9cbd6","#f6c3b8"];
+  for (let i=0;i<34;i++){ const c=document.createElement("i");
+    c.style.left = Math.random()*100+"%"; c.style.background = cols[i%cols.length];
+    c.style.animationDelay = (Math.random()*.5)+"s"; c.style.animationDuration = (1.4+Math.random())+"s"; box.appendChild(c); }
+  host.appendChild(box); setTimeout(()=>box.remove(), 3200);
+}
+document.querySelectorAll("[data-mascot]").forEach(el => el.innerHTML = mascot(el.dataset.mascot));
 
 /* ---------- boot ---------- */
 $("#dateSel").value = S.date;
@@ -560,12 +677,12 @@ function render(){
   });
   const L = $("#list");
   if (!tot) {
-    L.innerHTML = `<div class="empty"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+    L.innerHTML = `<div class="empty"><div class="ic">${mascot("sleep")}</div>
       <h3>ยังไม่มีรายชื่อผู้เข้าเรียน</h3><div>${S.canAdmin ? "นำเข้ารายชื่อจากไฟล์ CSV / Excel หรือเพิ่มทีละคนได้เลย" : "รอผู้ดูแลเพิ่มรายชื่อ"}</div>
       ${S.canAdmin ? `<div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="btn btn-pri" onclick="document.getElementById('bImport').click()">นำเข้า CSV / Excel</button><button class="btn btn-ghost" onclick="document.getElementById('bAdd').click()">เพิ่มรายชื่อ</button></div>`:""}</div>`;
     return;
   }
-  if (!rows.length) { L.innerHTML = `<div class="empty">ไม่พบรายชื่อที่ค้นหา</div>`; return; }
+  if (!rows.length) { L.innerHTML = `<div class="empty"><div class="ic" style="width:100px;height:100px">${mascot("hello")}</div>ไม่พบรายชื่อที่ค้นหา</div>`; return; }
   L.innerHTML = rows.map((p,i) => {
     const c = S.checkins[p.id];
     const meta = [p.dept,p.org].filter(Boolean).map(esc).join(" · ");
@@ -582,7 +699,7 @@ function render(){
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>เช็คชื่อ</button>`;
     }
     return `<div class="row ${c?"done":""}">
-      <div class="av">${esc(initials(p.name))}</div>
+      <div class="av c${((Number(p.no)||i)%5)}">${esc(initials(p.name))}</div>
       <div><div class="nm"><span class="no">${p.no?p.no+". ":""}</span>${esc(p.name)}</div><div class="meta">${meta||"&nbsp;"}</div></div>
       <div class="right">${right}${S.canAdmin?`<button class="kebab" data-menu="${esc(p.id)}" aria-label="เมนู">⋮</button>`:""}</div>
     </div>`;
@@ -648,12 +765,12 @@ let drawing=false, hasInk=false, last=null, checkDone=false, current=null;
 function sizePad(){
   const r = cv.getBoundingClientRect(), d = window.devicePixelRatio||1;
   cv.width = r.width*d; cv.height = r.height*d;
-  ctx.setTransform(d,0,0,d,0,0); ctx.lineCap="round"; ctx.lineJoin="round"; ctx.strokeStyle="#064e3b";
+  ctx.setTransform(d,0,0,d,0,0); ctx.lineCap="round"; ctx.lineJoin="round"; ctx.strokeStyle="#5a2e30";
 }
 function clearPad(){ ctx.clearRect(0,0,cv.width,cv.height); hasInk=false; $("#padHint").style.display=""; $("#bApprove").disabled=true; }
 const pt = e => { const r=cv.getBoundingClientRect(); return {x:e.clientX-r.left, y:e.clientY-r.top, p:e.pressure||.5}; };
 cv.addEventListener("pointerdown", e => { e.preventDefault(); cv.setPointerCapture(e.pointerId); drawing=true; last=pt(e);
-  ctx.beginPath(); ctx.arc(last.x,last.y,1.3,0,7); ctx.fillStyle="#064e3b"; ctx.fill(); });
+  ctx.beginPath(); ctx.arc(last.x,last.y,1.3,0,7); ctx.fillStyle="#5a2e30"; ctx.fill(); });
 cv.addEventListener("pointermove", e => { if(!drawing) return; const p=pt(e);
   ctx.lineWidth = 2.2 + (e.pointerType==="pen" ? p.p*2 : .6);
   ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke(); last=p;
@@ -694,13 +811,13 @@ $("#bApprove").onclick = async () => {
     $("#checkBody").style.display="none"; $("#checkFoot").style.display="none";
     const late = isLate(c);
     const box = document.createElement("div"); box.id="successBox"; box.className="mb success";
-    box.innerHTML = `<div class="ck"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div>
+    box.innerHTML = `<div class="ck" style="margin:0 auto">${mascot("happy")}</div>
       <h2 style="margin:16px 0 4px">เช็คชื่อเรียบร้อย!</h2>
       <div style="color:var(--muted)">${esc(c.name)}</div>
       <div style="font-size:34px;font-weight:700;color:var(--g700);margin-top:8px">${fmtTimeS(c.time)} น.</div>
       <div style="margin-top:6px"><span class="tag ${late?"late":"ok"}">${late?`สาย ${lateMin(c)} นาที`:"ตรงเวลา"}</span></div>
       <button class="btn btn-pri" style="margin-top:18px" data-close>เสร็จสิ้น</button>`;
-    $("#mCheck .modal").appendChild(box);
+    $("#mCheck .modal").appendChild(box); $("#mCheck .modal").style.position="relative"; confetti($("#mCheck .modal"));
     setTimeout(()=>{ if(checkDone && $("#mCheck").classList.contains("show")) close("#mCheck"); }, 3500);
   } catch(e) { b.disabled=false; toast("⚠️ "+errMsg(e)); if (e && e.code==="invalid_argument") { S.canWrite=false; render(); } }
 };
