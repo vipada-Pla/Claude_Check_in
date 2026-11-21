@@ -1,10 +1,12 @@
 /**
- * ตั้งค่าการเชื่อมต่อ Google Sheets
- * วาง "Web app URL" ที่ได้จาก Apps Script (ลงท้ายด้วย /exec) ไว้ในเครื่องหมายคำพูดด้านล่าง
- * ถ้าเว้นว่าง หน้าเว็บจะทำงานแบบ "เครื่องเดียว" (บันทึกในเบราว์เซอร์ ไม่ส่งเข้า Google Sheet)
+ * ตั้งค่าการเชื่อมต่อ Supabase (ฐานข้อมูล + ระบบล็อกอิน)
+ * - SUPABASE_KEY คือ "publishable key" — เปิดเผยบนเว็บได้ ปลอดภัยเพราะสิทธิ์คุมด้วย RLS ในฐานข้อมูล
+ * - ห้ามนำ service_role / secret key มาใส่ไฟล์นี้เด็ดขาด
  */
 window.ATTENDANCE_CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbz6zIK6IObV8xjg-so9EcbNedXyMrdg2JPd1NANrF3UMduVC5ljOMYqWcD-l1SrCg9s/exec",
-  REFRESH_SECONDS: 15,  // ดึงข้อมูลล่าสุดจาก Google Sheet ทุกกี่วินาที
-  GITHUB_REPO: "vipada-Pla/Claude_Check_in"   // ใช้แสดงลิงก์และวันที่อัปเดตล่าสุดจาก GitHub
+  SUPABASE_URL: "https://sfbugtozxknimwfksszb.supabase.co",
+  SUPABASE_KEY: "sb_publishable_Ttuqyc55GQv5LxsMRGX3zQ_pSNvD42j",
+  ADMIN_EMAIL:  "vipada@foodlenoodle.com",   // บัญชี Gmail/Google Workspace ของผู้ดูแล
+  VERSION: "2.0.0",
+  GITHUB_REPO: "vipada-Pla/Claude_Check_in"
 };

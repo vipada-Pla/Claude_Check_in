@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#b85c66">
+<title>เข้าสู่ระบบผู้ดูแล · Claude AI Class</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<style>
+:root{--ink:#4a2a2c;--pink:#d4848a;--rose:#b85c66;--muted:#8d6b67;--red:#c0485a}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:"Mali",system-ui,sans-serif;color:var(--ink);min-height:100vh;display:grid;place-items:center;padding:20px;
+  background-color:#fbf5f0;
+  background-image:radial-gradient(circle at 12% 8%,#f8dcd3 0,transparent 32%),radial-gradient(circle at 92% 4%,#f6e3c9 0,transparent 30%),
+    radial-gradient(circle at 80% 90%,#f3d9d6 0,transparent 35%),radial-gradient(#ead3cc 1.2px,transparent 1.3px);
+  background-size:auto,auto,auto,22px 22px;background-attachment:fixed}
+.card{width:100%;max-width:420px;background:#fff;border:2.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);border-radius:28px;overflow:hidden}
+.top{background:linear-gradient(135deg,#b85c66 0%,#d4848a 48%,#e3a98a 100%);color:#fff;padding:26px 24px 22px;border-bottom:2.5px solid var(--ink);position:relative}
+.top h1{margin:0;font-size:22px;text-shadow:2px 2px 0 rgba(74,42,44,.25)}
+.top p{margin:4px 0 0;opacity:.92;font-size:14px}
+.lock{width:52px;height:52px;border-radius:16px;background:#fff5ef;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);display:grid;place-items:center;font-size:24px;transform:rotate(-6deg);margin-bottom:12px}
+.body{padding:22px 24px 24px}
+.btn{width:100%;border-radius:16px;padding:13px 16px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;border:2.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .08s}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.g{background:#fff;color:#3c4043}
+.pri{background:var(--pink);color:#fff}
+.ghost{background:#fffaf7;color:var(--ink)}
+.or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;margin:18px 0}
+.or::before,.or::after{content:"";flex:1;border-top:1.5px dashed #e2c4bd}
+label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
+input{width:100%;border:2px solid #e8d3cc;border-radius:12px;padding:11px 12px;font:inherit;font-size:16px;outline:none;margin-bottom:10px}
+input:focus{border-color:var(--pink)}
+.msg{font-size:14px;border-radius:12px;padding:10px 12px;margin-top:14px;display:none}
+.msg.show{display:block}
+.msg.ok{background:#eef1e4;color:#4f6136;border:1.5px solid #c2d3a8}
+.msg.err{background:#fff1f2;color:var(--red);border:1.5px solid #fecdd3}
+.me{display:flex;gap:12px;align-items:center;background:#fdf0ec;border:2px dashed #e2a5a5;border-radius:16px;padding:12px;margin-bottom:14px}
+.me img,.me .ph{width:46px;height:46px;border-radius:50%;border:2.5px solid var(--ink);object-fit:cover;background:#f6c3b8;display:grid;place-items:center;font-weight:700}
+.me b{display:block}
+.me small{color:var(--muted)}
+.stack{display:grid;gap:10px}
+.foot{text-align:center;font-size:12px;color:#b48e88;margin-top:16px}
+.foot a{color:var(--rose)}
+.hint{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+</style>
+</head>
+<body>
+<div>
+<div class="card">
+  <div class="top">
+    <div class="lock">🔐</div>
+    <h1>เข้าสู่ระบบผู้ดูแล</h1>
+    <p>Claude AI Class · ระบบเช็คชื่อ</p>
+  </div>
+  <div class="body">
+    <!-- ยังไม่ล็อกอิน -->
+    <div id="vOut">
+      <button class="btn g" id="bGoogle">
+        <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+        เข้าสู่ระบบด้วย Google
+      </button>
+      <div class="or">หรือรับลิงก์ทางอีเมล</div>
+      <label for="email">อีเมลผู้ดูแล</label>
+      <input id="email" type="email" autocomplete="email" placeholder="you@company.com">
+      <button class="btn ghost" id="bMagic">✉️ ส่งลิงก์เข้าสู่ระบบ</button>
+      <div class="hint">เฉพาะบัญชีที่ได้รับสิทธิ์ผู้ดูแลเท่านั้น ผู้เรียนไม่ต้องล็อกอิน — กลับไปหน้าเช็คชื่อแล้วกดชื่อตัวเองได้เลย</div>
+    </div>
+    <!-- ล็อกอินแล้ว -->
+    <div id="vIn" style="display:none">
+      <div class="me"><span id="meAv"></span><div><b id="meName">-</b><small id="meEmail">-</small></div></div>
+      <div class="stack">
+        <a class="btn pri" id="bGo" href="./" style="text-decoration:none">➜ ไปหน้าเช็คชื่อ (โหมดผู้ดูแล)</a>
+        <button class="btn ghost" id="bOut">ออกจากระบบ</button>
+      </div>
+    </div>
+    <div class="msg" id="msg"></div>
+  </div>
+</div>
+<div class="foot"><a href="./">← กลับหน้าเช็คชื่อ</a> · v<span id="ver"></span></div>
+</div>
+
+<script>
+(() => {
+const CFG = window.ATTENDANCE_CONFIG || {};
+const $ = s => document.querySelector(s);
+$("#ver").textContent = CFG.VERSION || "";
+const msg = (t, ok) => { const m = $("#msg"); m.textContent = t; m.className = "msg show " + (ok ? "ok" : "err"); };
+const sb = supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_KEY);
+const here = location.origin + location.pathname;
+
+async function show(session){
+  if (!session) { $("#vOut").style.display = ""; $("#vIn").style.display = "none"; return; }
+  const u = session.user, md = u.user_metadata || {};
+  $("#meName").textContent = md.full_name || md.name || u.email;
+  $("#meEmail").textContent = u.email;
+  $("#meAv").innerHTML = md.avatar_url ? `<img src="${md.avatar_url}" alt="">` : `<span class="ph">${(u.email||"?")[0].toUpperCase()}</span>`;
+  const { data: isAdmin, error } = await sb.rpc("is_admin");
+  if (error || !isAdmin) {
+    msg("บัญชี " + u.email + " ไม่มีสิทธิ์ผู้ดูแล — ระบบออกจากระบบให้แล้ว", false);
+    await sb.auth.signOut(); return show(null);
+  }
+  $("#vOut").style.display = "none"; $("#vIn").style.display = "";
+  msg("เข้าสู่ระบบสำเร็จ กำลังพาไปหน้าเช็คชื่อ…", true);
+  setTimeout(() => { location.href = "./"; }, 1500);
+}
+
+$("#bGoogle").onclick = async () => {
+  $("#bGoogle").disabled = true;
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: "google",
+    options: { redirectTo: here, queryParams: { prompt: "select_account", login_hint: CFG.ADMIN_EMAIL || "" } }
+  });
+  if (error) { $("#bGoogle").disabled = false; msg("เปิดหน้าล็อกอิน Google ไม่ได้: " + error.message, false); }
+};
+$("#bMagic").onclick = async () => {
+  const email = $("#email").value.trim(); if (!email) { $("#email").focus(); return; }
+  $("#bMagic").disabled = true;
+  const { error } = await sb.auth.signInWithOtp({ email, options: { emailRedirectTo: here, shouldCreateUser: true } });
+  $("#bMagic").disabled = false;
+  if (error) msg("ส่งลิงก์ไม่สำเร็จ: " + error.message, false);
+  else msg("ส่งลิงก์ไปที่ " + email + " แล้ว — เปิดอีเมลแล้วกดลิงก์เพื่อเข้าสู่ระบบ", true);
+};
+$("#email").value = CFG.ADMIN_EMAIL || "";
+$("#bOut").onclick = async () => { await sb.auth.signOut(); $("#msg").className = "msg"; show(null); };
+
+const err = new URLSearchParams(location.hash.slice(1) || location.search).get("error_description");
+if (err) msg("ล็อกอินไม่สำเร็จ: " + err, false);
+sb.auth.getSession().then(({ data }) => show(data.session));
+sb.auth.onAuthStateChange((ev, s) => { if (ev === "SIGNED_IN") show(s); });
+})();
+</script>
+</body>
+</html>
